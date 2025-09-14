@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Doherty Olamiji Theresa — Portfolio</title>
+<meta name="description" content="Portfolio of Doherty Olamiji Theresa — Accounting student & aspiring entrepreneur" />
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ====== VARIABLES & BASE ====== */
+  :root{
+    --bg:#fff7fb;
+    --card:#ffffff;
+    --muted:#8b7280;
+    --accent:#e8a0c8; /* pastel pink */
+    --accent-2:#f7c6e0;
+    --accent-3:#cfa0d6;
+    --text:#3b2b33;
+    --glass: rgba(255,255,255,0.65);
+    --radius:18px;
+    --shadow: 0 8px 24px rgba(59,43,51,0.08);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(180deg, var(--bg) 0%, #fff 60%);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.45;
+    padding:32px;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block;border-radius:12px}
+
+  /* ====== LAYOUT ====== */
+  .container{
+    max-width:1100px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns: 360px 1fr;
+    gap:28px;
+    align-items:start;
+  }
+
+  /* LEFT SIDEBAR */
+  .sidebar{
+    background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+    padding:22px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    position:sticky;
+    top:28px;
+    min-height:300px;
+  }
+  .portrait{
+    width:100%;
+    height:360px;
+    border-radius:16px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    margin-bottom:16px;
+    position:relative;
+  }
+  .portrait img{object-fit:cover;height:100%;width:100%}
+  /* When you replace the placeholder, keep roughly 1200x1200 for quality. */
+
+  .name{
+    font-family:'Playfair Display', serif;
+    font-size:26px;
+    font-weight:700;
+    margin:6px 0 6px 0;
+    color: #492436;
+  }
+  .role{font-size:14px;color:var(--muted);margin-bottom:14px}
+
+  .contact-list{font-size:14px;color:var(--muted);line-height:1.6}
+  .contact-list a{display:inline-block;color:var(--text)}
+  .pill{
+    display:inline-block;
+    background:var(--accent-2);
+    color:#4a2b3a;
+    padding:6px 12px;
+    border-radius:999px;
+    font-weight:600;
+    margin-top:12px;
+    font-size:13px;
+    box-shadow: 0 6px 18px rgba(201,151,182,0.14);
+  }
+
+  /* RIGHT CONTENT */
+  .content{
+    padding:22px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
+
+  header h1{font-family:'Playfair Display', serif;font-size:28px;margin:0;color:#4b2b3a}
+  header p.lead{margin:8px 0 18px;color:var(--muted);font-size:15px}
+
+  /* SECTIONS */
+  section{margin-bottom:20px;padding-bottom:8px;border-bottom:1px dashed rgba(75,40,57,0.06)}
+  section h2{
+    font-size:18px;margin:0 0 12px 0;color:#5b2f44;
+    display:flex;align-items:center;gap:10px;
+  }
+  .chip{
+    display:inline-block;background:var(--accent-3);padding:6px 10px;border-radius:10px;font-weight:600;font-size:13px;color:#3b2430;margin-right:10px;
+  }
+
+  /* about */
+  .about{display:grid;grid-template-columns: 1fr 200px;gap:18px}
+  .about p{color:var(--muted);font-size:15px;margin:0}
+
+  /* education / skills */
+  .grid-2{display:flex;gap:12px;flex-wrap:wrap}
+  .card{
+    background:linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.98) 100%);
+    padding:14px;border-radius:12px;flex:1;min-width:200px;box-shadow: 0 6px 20px rgba(76,28,45,0.04);
+  }
+  .small{font-size:13px;color:var(--muted)}
+
+  .skill {margin-bottom:8px}
+  .skill .label{font-size:13px;color:var(--muted);display:flex;justify-content:space-between}
+  .bar{height:10px;border-radius:999px;background:rgba(203,160,184,0.18);overflow:hidden;margin-top:6px}
+  .bar > span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent) 0%,var(--accent-3) 100%);}
+
+  /* projects */
+  .project{
+    display:flex;gap:14px;align-items:flex-start;margin-bottom:12px;
+  }
+  .project .meta{font-size:13px;color:var(--muted)}
+  .project .desc{color:var(--muted);font-size:14px;margin-top:6px}
+
+  /* certifications */
+  ul.list{list-style:none;padding:0;margin:0}
+  ul.list li{padding:8px 0;border-bottom:1px dashed rgba(75,40,57,0.04);font-size:14px;color:var(--muted)}
+
+  /* contact form */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .form-control{padding:10px;border-radius:10px;border:1px solid rgba(75,40,57,0.08);font-size:14px;background:transparent}
+  .btn{
+    background:linear-gradient(90deg,var(--accent) 0%,var(--accent-3) 100%);
+    padding:10px 16px;border-radius:12px;border:0;font-weight:700;cursor:pointer;color:#fff;box-shadow: 0 10px 30px rgba(201,151,182,0.12);
+  }
+
+  /* footer */
+  footer{margin-top:8px;text-align:center;color:var(--muted);font-size:13px;padding:18px}
+
+  /* RESPONSIVE */
+  @media (max-width:1000px){
+    .container{grid-template-columns: 1fr; padding:0 12px}
+    .sidebar{position:relative;top:0}
+    .about{grid-template-columns:1fr}
+    .contact-grid{grid-template-columns:1fr}
+  }
+
+  /* subtle animations */
+  .fade-up{opacity:0;transform:translateY(8px);animation:fadeUp .7s forwards}
+  @keyframes fadeUp{to{opacity:1;transform:none}}
+  .glow{box-shadow: 0 8px 30px rgba(232,160,200,0.14)}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- LEFT: PROFILE SIDEBAR -->
+  <aside class="sidebar fade-up" style="animation-delay:.05s">
+    <div class="portrait" aria-hidden="true">
+      <!-- Replace "portrait.jpg" with your real portrait image file name.
+           Keep the filename in the same folder as index.html, or use an absolute URL.
+           Ideal size ~1200x1200 for good cropping. -->
+      <img src="portrait-placeholder.jpg" alt="Portrait of Doherty Olamiji Theresa" id="portraitImage">
+    </div>
+
+    <div>
+      <div class="name">Doherty Olamiji Theresa</div>
+      <div class="role">Accounting Student • Aspiring Entrepreneur</div>
+
+      <div class="pill" style="display:inline-block">Caleb University — 400 Level</div>
+
+      <div style="margin-top:14px" class="contact-list">
+        <div><strong>Email:</strong> <a href="mailto:dohertyolamiji@gmail.com">dohertyolamiji@gmail.com</a></div>
+        <div><strong>Phone:</strong> <a href="tel:+2347088957345">07088957345</a></div>
+        <div><strong>Alternate:</strong> <a href="tel:+2349159079306">09159079306</a></div>
+        <div style="margin-top:8px"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/olamiji-doherty" target="_blank" rel="noopener">Olamiji Doherty</a></div>
+      </div>
+
+      <div style="margin-top:16px">
+        <a class="btn" href="mailto:dohertyolamiji@gmail.com?subject=Portfolio%20Contact%20from%20Website">Contact Me</a>
+      </div>
+
+      <div style="margin-top:16px" class="small">
+        <strong>Personal Statement</strong>
+        <p style="margin:8px 0;color:var(--muted);font-size:14px">
+          I'm passionate about building my own business and creating something meaningful. While studying Accounting, I aim to become an entrepreneur—owning and managing businesses that solve real problems and add value.
+        </p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- RIGHT: MAIN CONTENT -->
+  <main class="content fade-up" style="animation-delay:.15s">
+    <header>
+      <h1>Portfolio — Doherty Olamiji Theresa</h1>
+      <p class="lead">Accounting student at Caleb University • Focused on entrepreneurship, financial reporting research, and practical business solutions.</p>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2><span class="chip">About</span>Overview</h2>
+      <div class="about">
+        <div>
+          <p>I am an Accounting student in 400 Level at Caleb University with a deep interest in entrepreneurship. I am building skills in business analysis, financial reporting, and digital fundamentals to prepare myself for launching businesses that create impact. I prefer practical experience over a 9–5 and focus on learning, teamwork, and leadership.</p>
+
+          <p style="margin-top:8px"><strong>Current focus:</strong> Completing research on IFRS adoption effects, gaining practical accounting experience, and strengthening digital literacy to support entrepreneurial ventures.</p>
+        </div>
+        <div>
+          <!-- small highlights -->
+          <div class="card small">
+            <div style="font-weight:700;margin-bottom:8px">Quick Facts</div>
+            <div style="margin-bottom:6px"><strong>University:</strong> Caleb University</div>
+            <div style="margin-bottom:6px"><strong>Department:</strong> Accounting</div>
+            <div style="margin-bottom:6px"><strong>Level:</strong> 400 Level</div>
+            <div style="margin-top:10px"><strong>Languages:</strong> English</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <h2><span class="chip">Education</span>Academic Background</h2>
+      <div class="grid-2">
+        <div class="card">
+          <div style="font-weight:700">Caleb University — Accounting</div>
+          <div class="small">Relevant courses completed:</div>
+          <ul class="small" style="margin-top:8px;padding-left:16px;color:var(--muted)">
+            <li>Accounting Theory</li>
+            <li>Public Sector Accounting</li>
+            <li>Organisational Behavior and Theory</li>
+            <li>Taxation</li>
+            <li>Management Accounting</li>
+            <li>Financial Accounting & Reporting</li>
+            <li>Entrepreneurial Skills</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div style="font-weight:700">Internship / Practical Experience</div>
+          <div class="small" style="margin-top:8px">
+            <strong>Olayinka Oyebola & Co</strong><br>
+            Role: Accounting Intern (SIWES)<br>
+            Duration: September – October 2025
+            <!-- If you want add responsibilities, paste them below -->
+            <div style="margin-top:8px;color:var(--muted)">Responsibilities: Practical accounting tasks, assisting with record keeping, and exposure to reporting processes.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2><span class="chip">Skills</span>Technical & Soft Skills</h2>
+      <div class="grid-2">
+        <div class="card">
+          <div style="font-weight:700;margin-bottom:8px">Technical Skills</div>
+          <div class="small">Fundamentals of digital Marketing</div>
+
+          <div style="margin-top:14px;font-weight:700;margin-bottom:6px">Soft Skills</div>
+          <ul class="small" style="padding-left:16px;color:var(--muted)">
+            <li>Teamwork & Collaboration</li>
+            <li>Time Management</li>
+            <li>Analytical Thinking</li>
+            <li>Strong Communication</li>
+            <li>Attention to Detail</li>
+            <li>Leadership</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div style="font-weight:700;margin-bottom:8px">Competency Bars (visual)</div>
+          <div class="skill">
+            <div class="label"><span>Communication</span><span>85%</span></div>
+            <div class="bar"><span style="width:85%"></span></div>
+          </div>
+          <div class="skill">
+            <div class="label"><span>Analytical Thinking</span><span>78%</span></div>
+            <div class="bar"><span style="width:78%"></span></div>
+          </div>
+          <div class="skill">
+            <div class="label"><span>Leadership</span><span>75%</span></div>
+            <div class="bar"><span style="width:75%"></span></div>
+          </div>
+          <div class="skill">
+            <div class="label"><span>Digital Fundamentals</span><span>70%</span></div>
+            <div class="bar"><span style="width:70%"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2><span class="chip">Projects</span>Academic & Research</h2>
+
+      <div class="project">
+        <div style="width:150px">
+          <!-- Replace project image placeholder with your project image -->
+          <img src="project-ifrs-placeholder.jpg" alt="IFRS research snapshot" style="border-radius:12px;">
+        </div>
+        <div>
+          <div style="font-weight:700">Impact of IFRS Adoption on Financial Reporting Practice of Selected DMBs in Nigeria</div>
+          <div class="meta">Academic Project (Ongoing)</div>
+          <div class="desc">A research work analyzing pre- and post-IFRS financial reports using secondary data to assess reporting changes and compliance impacts.</div>
+        </div>
+      </div>
+
+      <!-- Add more projects here if you wish -->
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+      <h2><span class="chip">Certs</span>Certifications & Trainings</h2>
+      <div class="card">
+        <ul class="list">
+          <li>CompTIA IT Fundamentals (ITF+): Computer Basics</li>
+          <li>CompTIA IT Fundamentals (ITF+): Setting Up & Using Computers</li>
+          <li>CompTIA: Networking, Security and Maintenance</li>
+          <li>CompTIA: Database and Software Development</li>
+          <li>CompTIA: Mastery Of Information Technology Ethics</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2><span class="chip">Work</span>Get in touch</h2>
+
+      <div style="display:flex;gap:18px;flex-wrap:wrap">
+        <div style="flex:1;min-width:300px">
+          <form id="contactForm" onsubmit="return handleContact(event)">
+            <div class="contact-grid">
+              <input class="form-control" type="text" id="name" placeholder="Your name" required>
+              <input class="form-control" type="email" id="email" placeholder="Your email" required>
+            </div>
+            <div style="margin-top:10px">
+              <input class="form-control" type="text" id="subject" placeholder="Subject" required>
+            </div>
+            <div style="margin-top:10px">
+              <textarea class="form-control" id="message" rows="5" placeholder="Message..." required></textarea>
+            </div>
+            <div style="margin-top:10px;display:flex;gap:10px;align-items:center">
+              <button class="btn" type="submit">Send message</button>
+              <button type="button" class="btn" onclick="downloadCV()" style="background:linear-gradient(90deg,#cfa0d6,#f7c6e0)">Download CV</button>
+            </div>
+            <div id="formFeedback" style="margin-top:10px;color:var(--muted);font-size:13px"></div>
+          </form>
+        </div>
+
+        <div style="flex-basis:300px">
+          <div class="card">
+            <div style="font-weight:700">Quick Contact</div>
+            <div style="margin-top:8px;color:var(--muted)">
+              <div><strong>Email:</strong> dohertyolamiji@gmail.com</div>
+              <div><strong>Phone:</strong> 07088957345</div>
+              <div style="margin-top:10px"><strong>LinkedIn:</strong> <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/olamiji-doherty">Olamiji Doherty</a></div>
+            </div>
+
+            <div style="margin-top:10px">
+              <div style="font-weight:700">Availability</div>
+              <div class="small" style="color:var(--muted)">Available for internships, collaborations, and research support.</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px" class="card">
+            <div style="font-weight:700">Volunteer & Interests</div>
+            <div class="small" style="color:var(--muted);margin-top:8px">Entrepreneurship, Financial Reporting, Business Development, Community Projects.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Doherty Olamiji Theresa — Built with care • Designed for entrepreneurs</div>
+    </footer>
+  </main>
+
+</div>
+
+<!-- ====== SCRIPTS: small interactive helpers ====== -->
+<script>
+  // Set year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Contact form: open mailto with prefilled subject/body (client-side only)
+  function handleContact(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if(!name || !email || !subject || !message){
+      document.getElementById('formFeedback').textContent = 'Please fill in all fields.';
+      return false;
+    }
+
+    // create mailto:
+    const mailTo = 'dohertyolamiji@gmail.com';
+    const body = encodeURIComponent(
+      'Name: ' + name + '\\n' +
+      'Email: ' + email + '\\n\\n' +
+      message
+    );
+    const mailUrl = `mailto:${mailTo}?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+    // Try to open mail client:
+    window.location.href = mailUrl;
+
+    document.getElementById('formFeedback').textContent = 'Opening your email client...';
+    return false;
+  }
+
+  // CV download placeholder:
+  function downloadCV(){
+    // Replace "Doherty_CV.pdf" with your real CV file path in same folder.
+    const cvPath = 'Doherty_CV.pdf';
+    const link = document.createElement('a');
+    link.href = cvPath;
+    link.download = 'Doherty_Olamiji_Theresa_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  // Quick image check: if portrait placeholder available, show subtle overlay text
+  (function(){
+    const img = document.getElementById('portraitImage');
+    img.onerror = function(){
+      // If placeholder missing, create a pretty SVG fallback
+      const wrapper = img.parentElement;
+      wrapper.innerHTML = `
+        <svg width="100%" height="100%" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Portrait placeholder">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#f7c6e0" />
+              <stop offset="1" stop-color="#cfa0d6" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#g)"/>
+          <text x="50%" y="48%" text-anchor="middle" font-family="Playfair Display, serif" font-size="36" fill="#4b2b3a">Your Portrait</text>
+          <text x="50%" y="58%" text-anchor="middle" font-size="16" fill="#4b2b3a">Replace portrait-placeholder.jpg</text>
+        </svg>`;
+    };
+  })();
+
+  // Smooth scrolling for internal links (if you add nav)
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      const t = document.querySelector(this.getAttribute('href'));
+      if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  // Option: Add keyboard shortcut 'g' to toggle glow styling for hero (small easter egg)
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'g' || e.key === 'G'){
+      document.querySelectorAll('.glow').forEach(el=>el.classList.toggle('glow'));
+      // toggle on main content
+      document.querySelector('.content').classList.toggle('glow');
+    }
+  });
+</script>
+
+<!-- ====== NOTES (Delete before deployment if desired) ======
+Instructions:
+- Replace portrait-placeholder.jpg with your real portrait image file.
+- Replace project-ifrs-placeholder.jpg with a project image or screenshot.
+- Replace LinkedIn href with your exact profile link if different.
+- Put 'Doherty_CV.pdf' (your CV) in same folder for Download CV button to work.
+- You can add more projects by copying the .project block in the Projects section.
+- This is a single-file portfolio ready to upload to GitHub Pages or Netlify.
+======================================================== -->
+
+</body>
+</html>
